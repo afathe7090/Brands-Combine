@@ -54,6 +54,7 @@ class RegisterViewController: UIViewController {
         setPasswordValidationEffectToView()
         setRe_PasswordValidationEffectToView()
         setRegisterButtonBinding()
+        setRegisterState()
         setLoginButtonBinding()
     }
     
@@ -109,6 +110,12 @@ class RegisterViewController: UIViewController {
         }.store(in: &subscripation)
     }
     
+    func setRegisterState(){
+        viewModel.isAllReadyToSignUp().sink { state in
+            self.registerButtonPressed.alpha = state ? 1:0.7
+            self.registerButtonPressed.isEnabled = state
+        }.store(in: &subscripation)
+    }
 
     func setRegisterButtonBinding(){
         registerButtonPressed.tabPublisher.sink { _ in
