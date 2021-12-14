@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CombineCocoa
 import Combine
 
 class RegisterViewController: UIViewController {
@@ -123,7 +124,7 @@ class RegisterViewController: UIViewController {
     
     
     func setRegisterButtonBinding(){
-        registerButtonPressed.tabPublisher.sink { _ in
+        registerButtonPressed.tapPublisher.sink { _ in
             self.viewModel.registerUser()
         }.store(in: &subscripation)
     }
@@ -131,7 +132,7 @@ class RegisterViewController: UIViewController {
     
     
     func setLoginButtonBinding(){
-        loginButtonPreseed.tabPublisher.sink { _ in
+        loginButtonPreseed.tapPublisher.sink { _ in
             self.navigationController?.popViewController(animated: true)
         }.store(in: &subscripation)
     }

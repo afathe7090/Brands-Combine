@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Foundation
+import CombineCocoa
 import Combine
 
 class LoginViewController: UIViewController {
@@ -54,6 +54,7 @@ class LoginViewController: UIViewController {
         bindingToEnableOrDisableLoginButton()
         registerButtonActionsPublisher()
         loginButtonActionPublisher()
+        StartBindingToGoHome()
     }
     
     
@@ -96,7 +97,6 @@ class LoginViewController: UIViewController {
     }
     
     
-    
     func bindingToEnableOrDisableLoginButton(){
         viewModel.combineTwoValidPublisher().sink { [weak self] state in
             guard let self = self else{return}
@@ -108,7 +108,7 @@ class LoginViewController: UIViewController {
     
     
     func loginButtonActionPublisher(){
-        loginButtonPressed.tabPublisher.sink {[weak self] _ in
+        loginButtonPressed.tapPublisher.sink {[weak self] _ in
             guard let self = self else { return }
             self.viewModel.signInFirebase()
         }.store(in: &subscripation)
@@ -117,9 +117,24 @@ class LoginViewController: UIViewController {
     
     
     func registerButtonActionsPublisher(){
-        registerButtonPressed.tabPublisher.sink { _ in
+        registerButtonPressed.tapPublisher.sink { _ in
             let registeVC = RegisterViewController()
             self.navigationController?.pushViewController(registeVC, animated: true)
+        }.store(in: &subscripation)
+    }
+    
+    func StartBindingToGoHome(){
+        viewModel.startGoToHomePagePublisher.sink { state in
+            print(#function)
+            
+            switch state {
+            case true :
+                let homeVC = HomeViewController()
+                self.present(UINavigationController(rootViewController: homeVC), animated: true, completion: nil)
+            case false :
+                return 
+            }
+            
         }.store(in: &subscripation)
     }
     

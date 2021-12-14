@@ -8,5 +8,7 @@ target 'Brands-Combine' do
   # Pods for Brands-Combine
 pod 'Firebase/Auth'
 pod 'Kingfisher'
+pod 'CombineCocoa'
+
 
 end

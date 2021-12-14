@@ -25,9 +25,6 @@
 		74F7B0F227664084004A15D0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7B0F027664084004A15D0 /* LoginViewController.swift */; };
 		74F7B0F327664084004A15D0 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74F7B0F127664084004A15D0 /* LoginViewController.xib */; };
 		74F7B0F7276640CF004A15D0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7B0F6276640CF004A15D0 /* LoginViewModel.swift */; };
-		74F7B0FD276657A9004A15D0 /* UITextField + Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7B0FC276657A9004A15D0 /* UITextField + Publisher.swift */; };
-		74F7B0FF27666230004A15D0 /* UIButton + Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7B0FE27666230004A15D0 /* UIButton + Publisher.swift */; };
-		74F7B10127666254004A15D0 /* UIControl + Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7B10027666254004A15D0 /* UIControl + Publisher.swift */; };
 		74F7B1042766B3C0004A15D0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7B1032766B3C0004A15D0 /* NetworkManager.swift */; };
 		74F7B1062766B3EE004A15D0 /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7B1052766B3EE004A15D0 /* FirebaseAuth.swift */; };
 		74F7B1092766C00C004A15D0 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7B1082766C00C004A15D0 /* Hud.swift */; };
@@ -59,9 +56,6 @@
 		74F7B0F027664084004A15D0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		74F7B0F127664084004A15D0 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		74F7B0F6276640CF004A15D0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		74F7B0FC276657A9004A15D0 /* UITextField + Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Publisher.swift"; sourceTree = "<group>"; };
-		74F7B0FE27666230004A15D0 /* UIButton + Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Publisher.swift"; sourceTree = "<group>"; };
-		74F7B10027666254004A15D0 /* UIControl + Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl + Publisher.swift"; sourceTree = "<group>"; };
 		74F7B1032766B3C0004A15D0 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		74F7B1052766B3EE004A15D0 /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
 		74F7B1082766C00C004A15D0 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
@@ -140,8 +134,8 @@
 		7405F0A42768D71700CD0CFF /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7405F0932768CDB600CD0CFF /* HomeViewController.xib */,
 				7405F0922768CDB600CD0CFF /* HomeViewController.swift */,
+				7405F0932768CDB600CD0CFF /* HomeViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -219,8 +213,8 @@
 		74F7B0E727663D73004A15D0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				7405F08E2768CD8100CD0CFF /* Home */,
 				74F7B0E927663DA9004A15D0 /* Auth */,
+				7405F08E2768CD8100CD0CFF /* Home */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -274,9 +268,6 @@
 		74F7B0FB2766577B004A15D0 /* Extenstion */ = {
 			isa = PBXGroup;
 			children = (
-				74F7B0FC276657A9004A15D0 /* UITextField + Publisher.swift */,
-				74F7B0FE27666230004A15D0 /* UIButton + Publisher.swift */,
-				74F7B10027666254004A15D0 /* UIControl + Publisher.swift */,
 				7405F09D2768D2C000CD0CFF /* UITableView + Publisher.swift */,
 				7405F0AA2768D79000CD0CFF /* UIView + Shadow.swift */,
 				7405F0AC2768D7F700CD0CFF /* Kingfisher + UrlImage.swift */,
@@ -454,8 +445,6 @@
 			files = (
 				7405F09C2768CE6F00CD0CFF /* APiManager.swift in Sources */,
 				7405F09E2768D2C000CD0CFF /* UITableView + Publisher.swift in Sources */,
-				74F7B0FF27666230004A15D0 /* UIButton + Publisher.swift in Sources */,
-				74F7B10127666254004A15D0 /* UIControl + Publisher.swift in Sources */,
 				74F7B0F227664084004A15D0 /* LoginViewController.swift in Sources */,
 				7405F0AB2768D79000CD0CFF /* UIView + Shadow.swift in Sources */,
 				74F7B11427678770004A15D0 /* RegisterViewController.swift in Sources */,
@@ -472,7 +461,6 @@
 				7405F0942768CDB600CD0CFF /* HomeViewController.swift in Sources */,
 				7405F0AD2768D7F700CD0CFF /* Kingfisher + UrlImage.swift in Sources */,
 				7405F0992768CE0F00CD0CFF /* CategoryModel.swift in Sources */,
-				74F7B0FD276657A9004A15D0 /* UITextField + Publisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

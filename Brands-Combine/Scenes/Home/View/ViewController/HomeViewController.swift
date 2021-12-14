@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import CombineCocoa
 
 class HomeViewController: UIViewController {
 
@@ -45,6 +46,7 @@ class HomeViewController: UIViewController {
         configureTableView()
         bindingLoadingToViewModel()
         tableViewDataSorceBinding()
+        tableViewDidSelectRowAt()
     }
 
     //----------------------------------------------------------------------------------------------------------------
@@ -66,7 +68,6 @@ class HomeViewController: UIViewController {
     
     func tableViewDataSorceBinding(){
         viewModel.fetchBrandsOfData()
-        
         viewModel.brandsDataPublisher.sink(receiveValue: tableView.items{ (tableView, indexPath, model) in
             let cell = tableView.dequeueReusableCell(withIdentifier: BrandsTableViewCell.cellID, for: indexPath) as! BrandsTableViewCell
             cell.setCell(data: model)
@@ -74,6 +75,12 @@ class HomeViewController: UIViewController {
         }).store(in: &subscripation)
         
         
+    }
+    
+    func tableViewDidSelectRowAt(){
+        tableView.didSelectRowPublisher.sink { indexPath in
+            print(self.viewModel.brandsData[indexPath.row])
+        }.store(in: &subscripation)
     }
     
     

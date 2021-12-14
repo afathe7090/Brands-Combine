@@ -15,6 +15,8 @@ protocol LoginViewModelProtocol{
     var textPasswordSubject: CurrentValueSubject<String ,Never> { get set }
     var isLoading: Bool {get set}
     var isLoadingPublisher: Published<Bool>.Publisher {get}
+    var startGoToHomePage: Bool {get}
+    var startGoToHomePagePublisher: Published<Bool>.Publisher { get }
     
     func checkEmailValidPublisher()-> AnyPublisher<Bool, Never>
     func checkPasswordValidPublisher()-> AnyPublisher<Bool,Never>
@@ -31,6 +33,9 @@ class LoginViewModel: LoginViewModelProtocol {
     //----------------------------------------------------------------------------------------------------------------
     @Published var isLoading: Bool = false
     var isLoadingPublisher: Published<Bool>.Publisher {$isLoading}
+    
+    @Published var startGoToHomePage: Bool = false
+    var startGoToHomePagePublisher: Published<Bool>.Publisher{$startGoToHomePage}
     
     var textEmailSubject: CurrentValueSubject<String, Never> = CurrentValueSubject<String,Never>("")
     var textPasswordSubject: CurrentValueSubject<String, Never> = CurrentValueSubject<String,Never>("")
@@ -79,13 +84,14 @@ class LoginViewModel: LoginViewModelProtocol {
         isLoading = true
         firebaseAuth?.signin(email: textEmailSubject.value, password: textPasswordSubject.value, completion: { [weak self] (_, error) in
             
+            
             guard let self = self else{ return }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {self.isLoading = false}
+            self.isLoading = false
             if let error = error {print(error.localizedDescription)
                 return
             }else {
                 //Note: Going To Home
-                print("Go to home")
+                self.startGoToHomePage = true
             }
         })
     }

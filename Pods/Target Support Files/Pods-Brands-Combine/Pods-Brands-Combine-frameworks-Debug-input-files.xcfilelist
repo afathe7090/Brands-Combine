@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-Brands-Combine/Pods-Brands-Combine-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CombineCocoa/CombineCocoa.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework
