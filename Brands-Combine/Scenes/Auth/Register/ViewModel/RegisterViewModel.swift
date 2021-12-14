@@ -93,7 +93,6 @@ class RegisterViewModel: RegisterViewModelProtocol{
         firebaseAuth?.signup(email: emailTextPublisher.value, password: passwordTextPublisher.value, completion: { [weak self] _, error in
 
             guard let self = self else{ return }
-            
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {self.isLoading = false}
             if error != nil {print(error!.localizedDescription) ; return}
         })

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="87" id="KGk-i7-Jjw" customClass="BrandsTableViewCell" customModule="Rx_MVVM" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="319" height="87"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="319" height="87"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gLd-vr-rP3">
+                        <rect key="frame" x="10" y="5" width="299" height="77"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FDI-55-gTo">
+                                <rect key="frame" x="15" y="5" width="274" height="67"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGA-OI-BlX">
+                                        <rect key="frame" x="0.0" y="0.0" width="134.5" height="67"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXa-50-5Y1">
+                                        <rect key="frame" x="139.5" y="0.0" width="134.5" height="67"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="FDI-55-gTo" secondAttribute="bottom" constant="5" id="10C-Vq-bZj"/>
+                            <constraint firstItem="FDI-55-gTo" firstAttribute="leading" secondItem="gLd-vr-rP3" secondAttribute="leading" constant="15" id="Oo4-R7-BL5"/>
+                            <constraint firstItem="FDI-55-gTo" firstAttribute="top" secondItem="gLd-vr-rP3" secondAttribute="top" constant="5" id="eqq-vS-9GT"/>
+                            <constraint firstAttribute="trailing" secondItem="FDI-55-gTo" secondAttribute="trailing" constant="10" id="oJm-KR-IWg"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gLd-vr-rP3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="0Of-TX-Elr"/>
+                    <constraint firstItem="gLd-vr-rP3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="PPV-al-SCL"/>
+                    <constraint firstAttribute="trailing" secondItem="gLd-vr-rP3" secondAttribute="trailing" constant="10" id="pO6-mu-Y3A"/>
+                    <constraint firstAttribute="bottom" secondItem="gLd-vr-rP3" secondAttribute="bottom" constant="5" id="vl0-fI-p70"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="backView" destination="gLd-vr-rP3" id="Yhv-Oc-ijB"/>
+                <outlet property="brandCounterLabel" destination="WXa-50-5Y1" id="dzd-LN-9ND"/>
+                <outlet property="brandNameLabel" destination="OGA-OI-BlX" id="TXh-Rt-Eaf"/>
+            </connections>
+            <point key="canvasLocation" x="206.52173913043481" y="129.57589285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

@@ -23,8 +23,8 @@ class LoginViewController: UIViewController {
     //----------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var backView: UIView!{didSet{backView.layer.cornerRadius = 15}}
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var registerButtonPressed: UIButton!
-    @IBOutlet weak var loginButtonPressed: UIButton!
+    @IBOutlet weak var registerButtonPressed: UIButton!{didSet{registerButtonPressed.layer.cornerRadius = 8}}
+    @IBOutlet weak var loginButtonPressed: UIButton!{didSet{loginButtonPressed.layer.cornerRadius = 10}}
     @IBOutlet weak var passwordAlertLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     

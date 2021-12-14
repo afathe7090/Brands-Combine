@@ -20,14 +20,14 @@ class RegisterViewController: UIViewController {
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Outlet
     //----------------------------------------------------------------------------------------------------------------
-    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var backView: UIView!{didSet{backView.layer.cornerRadius = 15}}
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordValidLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var re_passwordTextField: UITextField!
     @IBOutlet weak var re_passwordValidLabel: UILabel!
-    @IBOutlet weak var registerButtonPressed: UIButton!
-    @IBOutlet weak var loginButtonPreseed: UIButton!
+    @IBOutlet weak var registerButtonPressed: UIButton!{didSet{registerButtonPressed.layer.cornerRadius = 15}}
+    @IBOutlet weak var loginButtonPreseed: UIButton!{didSet{loginButtonPreseed.layer.cornerRadius = 15}}
     
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Init
@@ -40,7 +40,7 @@ class RegisterViewController: UIViewController {
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented")}
     
     
-    
+
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Lyfe Cycle
     //----------------------------------------------------------------------------------------------------------------
@@ -62,7 +62,6 @@ class RegisterViewController: UIViewController {
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Functions
     //----------------------------------------------------------------------------------------------------------------
-
     
     
     func creatBindingFromTextFieldsToViewModel(){
@@ -73,11 +72,13 @@ class RegisterViewController: UIViewController {
     
     
     
+    
     func setLoadingViewBinding(){
         viewModel.isLoadingPublisher.sink { state in
             state ? Hud.showHud(in: self.view):Hud.dismiss()
         }.store(in: &subscripation)
     }
+    
     
     
     
@@ -110,6 +111,8 @@ class RegisterViewController: UIViewController {
         }.store(in: &subscripation)
     }
     
+    
+    
     func setRegisterState(){
         viewModel.isAllReadyToSignUp().sink { state in
             self.registerButtonPressed.alpha = state ? 1:0.7
@@ -117,11 +120,15 @@ class RegisterViewController: UIViewController {
         }.store(in: &subscripation)
     }
 
+    
+    
     func setRegisterButtonBinding(){
         registerButtonPressed.tabPublisher.sink { _ in
             self.viewModel.registerUser()
         }.store(in: &subscripation)
     }
+    
+    
     
     func setLoginButtonBinding(){
         loginButtonPreseed.tabPublisher.sink { _ in
