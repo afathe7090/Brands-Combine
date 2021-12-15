@@ -130,6 +130,7 @@ class LoginViewController: UIViewController {
             switch state {
             case true :
                 let homeVC = HomeViewController()
+                homeVC.modalPresentationStyle = .fullScreen
                 self.present(UINavigationController(rootViewController: homeVC), animated: true, completion: nil)
             case false :
                 return 

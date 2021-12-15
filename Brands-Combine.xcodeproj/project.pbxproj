@@ -17,6 +17,7 @@
 		7405F0A92768D75400CD0CFF /* BrandsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7405F0A72768D75400CD0CFF /* BrandsTableViewCell.xib */; };
 		7405F0AB2768D79000CD0CFF /* UIView + Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405F0AA2768D79000CD0CFF /* UIView + Shadow.swift */; };
 		7405F0AD2768D7F700CD0CFF /* Kingfisher + UrlImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405F0AC2768D7F700CD0CFF /* Kingfisher + UrlImage.swift */; };
+		744A3EE0276961EC0028E2C0 /* BrandsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A3EDF276961EC0028E2C0 /* BrandsDetails.swift */; };
 		745B92F22768DE2700B2BCDF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B92F12768DE2700B2BCDF /* Constants.swift */; };
 		74F7B0D127663D0A004A15D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7B0D027663D0A004A15D0 /* AppDelegate.swift */; };
 		74F7B0D327663D0A004A15D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F7B0D227663D0A004A15D0 /* SceneDelegate.swift */; };
@@ -46,6 +47,7 @@
 		7405F0A72768D75400CD0CFF /* BrandsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrandsTableViewCell.xib; sourceTree = "<group>"; };
 		7405F0AA2768D79000CD0CFF /* UIView + Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Shadow.swift"; sourceTree = "<group>"; };
 		7405F0AC2768D7F700CD0CFF /* Kingfisher + UrlImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kingfisher + UrlImage.swift"; sourceTree = "<group>"; };
+		744A3EDF276961EC0028E2C0 /* BrandsDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsDetails.swift; sourceTree = "<group>"; };
 		745B92F12768DE2700B2BCDF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		74F7B0CD27663D0A004A15D0 /* Brands-Combine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Brands-Combine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F7B0D027663D0A004A15D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,54 @@
 			path = TableViewCell;
 			sourceTree = "<group>";
 		};
+		744A3ED9276961A00028E2C0 /* BrandsDetails */ = {
+			isa = PBXGroup;
+			children = (
+				744A3EDC276961C10028E2C0 /* Model */,
+				744A3EDB276961B00028E2C0 /* View */,
+				744A3EDA276961AB0028E2C0 /* ViewModel */,
+			);
+			path = BrandsDetails;
+			sourceTree = "<group>";
+		};
+		744A3EDA276961AB0028E2C0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		744A3EDB276961B00028E2C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				744A3EDE276961CF0028E2C0 /* ViewController */,
+				744A3EDD276961C70028E2C0 /* TableVIewCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		744A3EDC276961C10028E2C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				744A3EDF276961EC0028E2C0 /* BrandsDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		744A3EDD276961C70028E2C0 /* TableVIewCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TableVIewCell;
+			sourceTree = "<group>";
+		};
+		744A3EDE276961CF0028E2C0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		74F7B0C427663D0A004A15D0 = {
 			isa = PBXGroup;
 			children = (
@@ -213,6 +263,7 @@
 		74F7B0E727663D73004A15D0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				744A3ED9276961A00028E2C0 /* BrandsDetails */,
 				74F7B0E927663DA9004A15D0 /* Auth */,
 				7405F08E2768CD8100CD0CFF /* Home */,
 			);
@@ -456,6 +507,7 @@
 				74F7B1042766B3C0004A15D0 /* NetworkManager.swift in Sources */,
 				7405F0972768CDC500CD0CFF /* HomeViewModel.swift in Sources */,
 				74F7B0F7276640CF004A15D0 /* LoginViewModel.swift in Sources */,
+				744A3EE0276961EC0028E2C0 /* BrandsDetails.swift in Sources */,
 				7405F0A82768D75400CD0CFF /* BrandsTableViewCell.swift in Sources */,
 				74F7B0D327663D0A004A15D0 /* SceneDelegate.swift in Sources */,
 				7405F0942768CDB600CD0CFF /* HomeViewController.swift in Sources */,
