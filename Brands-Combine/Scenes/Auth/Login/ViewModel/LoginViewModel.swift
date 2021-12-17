@@ -82,7 +82,7 @@ class LoginViewModel: LoginViewModelProtocol {
     
     func signInFirebase(){
         isLoading = true
-        firebaseAuth?.signin(email: textEmailSubject.value, password: textPasswordSubject.value, completion: { [weak self] (_, error) in
+        firebaseAuth?.signin(email: textEmailSubject.value, password: textPasswordSubject.value, completion: { [weak self] (result, error) in
             
             
             guard let self = self else{ return }
@@ -91,6 +91,10 @@ class LoginViewModel: LoginViewModelProtocol {
                 return
             }else {
                 //Note: Going To Home
+                
+                guard let uID = result?.user.uid else{return}
+                saveUser(uID: uID)
+                
                 self.startGoToHomePage = true
             }
         })

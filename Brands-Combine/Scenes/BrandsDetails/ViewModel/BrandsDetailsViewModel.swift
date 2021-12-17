@@ -12,7 +12,9 @@ import Foundation
 
 protocol BrandsDetailsViewModelProtocol {
     var brandsDetails: [Phone] {get}
+    var brand: BrandsData? {get}
     var brandsDetailsPublished: Published<[Phone]>.Publisher {get}
+    func fetchBrandsDetailsData()
 }
 
 
@@ -26,6 +28,7 @@ class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
     
     @Published var brandsDetails: [Phone] = []
     var brandsDetailsPublished: Published<[Phone]>.Publisher {$brandsDetails}
+    var brand: BrandsData?
     
     var subscribation = Set<AnyCancellable>()
     
@@ -34,8 +37,9 @@ class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
     //----------------------------------------------------------------------------------------------------------------
    
     
-    init(apiManager: ApiManagerProtocol = APiManager()){
+    init(apiManager: ApiManagerProtocol = APiManager(), brand: BrandsData? = nil){
         self.apiManager = apiManager
+        self.brand = brand
     }
     
     
@@ -43,8 +47,10 @@ class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
     //=======>MARK: -  Functions
     //----------------------------------------------------------------------------------------------------------------
     func fetchBrandsDetailsData(){
-        let url = ""
         
+        let url = brand?.detail ?? ""
+        
+        print(url)
         apiManager.fetch(BrandsDetails.self, withURL: url, receiveCompletion: { completion in
             
             switch completion {
@@ -55,6 +61,7 @@ class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
             }
             
         }, receiveValue: { brands in
+            print(brands)
             self.brandsDetails = brands.data.phones
         }, subscripation: &subscribation)
     }

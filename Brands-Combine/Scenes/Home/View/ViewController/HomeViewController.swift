@@ -43,6 +43,7 @@ class HomeViewController: UIViewController {
     //----------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Home"
         configureTableView()
         bindingLoadingToViewModel()
         tableViewDataSorceBinding()
@@ -80,6 +81,9 @@ class HomeViewController: UIViewController {
     func tableViewDidSelectRowAt(){
         tableView.didSelectRowPublisher.sink { indexPath in
             print(self.viewModel.brandsData[indexPath.row])
+            let brandsViewModel = BrandsDetailsViewModel(brand: self.viewModel.brandsData[indexPath.row])
+            let brandsDetailVC = BrandsDetailsViewController(viewModel: brandsViewModel)
+            self.navigationController?.pushViewController(brandsDetailVC, animated: true)
         }.store(in: &subscripation)
     }
     

@@ -10,11 +10,11 @@ import Foundation
 // MARK: - BrandsDetails
 struct BrandsDetails: Codable {
     let status: Bool?
-    let data: DataClass
+    let data: BrandClass
 }
 
 // MARK: - DataClass
-struct DataClass: Codable {
+struct BrandClass: Codable {
     let title: String
     let current_page, last_page: Int
     let phones: [Phone]

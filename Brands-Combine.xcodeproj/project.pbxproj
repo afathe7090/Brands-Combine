@@ -272,9 +272,9 @@
 		74F7B0E727663D73004A15D0 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				744A3ED9276961A00028E2C0 /* BrandsDetails */,
 				74F7B0E927663DA9004A15D0 /* Auth */,
 				7405F08E2768CD8100CD0CFF /* Home */,
+				744A3ED9276961A00028E2C0 /* BrandsDetails */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
