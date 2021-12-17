@@ -19,6 +19,13 @@
 		7405F0AD2768D7F700CD0CFF /* Kingfisher + UrlImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405F0AC2768D7F700CD0CFF /* Kingfisher + UrlImage.swift */; };
 		744A3EE0276961EC0028E2C0 /* BrandsDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744A3EDF276961EC0028E2C0 /* BrandsDetails.swift */; };
 		745B92F22768DE2700B2BCDF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B92F12768DE2700B2BCDF /* Constants.swift */; };
+		749D76CE276D2B57005B2B46 /* PhoneDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D76CD276D2B57005B2B46 /* PhoneDetailsModel.swift */; };
+		749D76D1276D2B6D005B2B46 /* PhoneImagesCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D76CF276D2B6D005B2B46 /* PhoneImagesCells.swift */; };
+		749D76D2276D2B6D005B2B46 /* PhoneImagesCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749D76D0276D2B6D005B2B46 /* PhoneImagesCells.xib */; };
+		749D76D5276D2BD2005B2B46 /* PhoneDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D76D3276D2BD2005B2B46 /* PhoneDetailsViewController.swift */; };
+		749D76D6276D2BD2005B2B46 /* PhoneDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 749D76D4276D2BD2005B2B46 /* PhoneDetailsViewController.xib */; };
+		749D76D8276D2C18005B2B46 /* PhoneDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D76D7276D2C18005B2B46 /* PhoneDetailsViewModel.swift */; };
+		749D76DA276D2DC2005B2B46 /* UICollectionView + Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749D76D9276D2DC2005B2B46 /* UICollectionView + Publisher.swift */; };
 		74B8F55A2769F4C70036BA0E /* BrandsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B8F5582769F4C70036BA0E /* BrandsDetailsViewController.swift */; };
 		74B8F55B2769F4C70036BA0E /* BrandsDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74B8F5592769F4C70036BA0E /* BrandsDetailsViewController.xib */; };
 		74B8F55D2769F5370036BA0E /* BrandsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B8F55C2769F5370036BA0E /* BrandsDetailsViewModel.swift */; };
@@ -54,6 +61,13 @@
 		7405F0AC2768D7F700CD0CFF /* Kingfisher + UrlImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kingfisher + UrlImage.swift"; sourceTree = "<group>"; };
 		744A3EDF276961EC0028E2C0 /* BrandsDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandsDetails.swift; sourceTree = "<group>"; };
 		745B92F12768DE2700B2BCDF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		749D76CD276D2B57005B2B46 /* PhoneDetailsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneDetailsModel.swift; sourceTree = "<group>"; };
+		749D76CF276D2B6D005B2B46 /* PhoneImagesCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneImagesCells.swift; sourceTree = "<group>"; };
+		749D76D0276D2B6D005B2B46 /* PhoneImagesCells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneImagesCells.xib; sourceTree = "<group>"; };
+		749D76D3276D2BD2005B2B46 /* PhoneDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneDetailsViewController.swift; sourceTree = "<group>"; };
+		749D76D4276D2BD2005B2B46 /* PhoneDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhoneDetailsViewController.xib; sourceTree = "<group>"; };
+		749D76D7276D2C18005B2B46 /* PhoneDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneDetailsViewModel.swift; sourceTree = "<group>"; };
+		749D76D9276D2DC2005B2B46 /* UICollectionView + Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView + Publisher.swift"; sourceTree = "<group>"; };
 		74B8F5582769F4C70036BA0E /* BrandsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsDetailsViewController.swift; sourceTree = "<group>"; };
 		74B8F5592769F4C70036BA0E /* BrandsDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandsDetailsViewController.xib; sourceTree = "<group>"; };
 		74B8F55C2769F5370036BA0E /* BrandsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -214,6 +228,60 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		749D76C6276D2A09005B2B46 /* PhoneBrands */ = {
+			isa = PBXGroup;
+			children = (
+				749D76C9276D2A31005B2B46 /* Model */,
+				749D76C8276D2A2D005B2B46 /* ViewModel */,
+				749D76C7276D2A1E005B2B46 /* View */,
+			);
+			path = PhoneBrands;
+			sourceTree = "<group>";
+		};
+		749D76C7276D2A1E005B2B46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				749D76CC276D2A48005B2B46 /* CollectionCell */,
+				749D76CB276D2A3C005B2B46 /* ViewController */,
+			);
+			name = View;
+			path = ../BrandsPhone/View;
+			sourceTree = "<group>";
+		};
+		749D76C8276D2A2D005B2B46 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				749D76D7276D2C18005B2B46 /* PhoneDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		749D76C9276D2A31005B2B46 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				749D76CD276D2B57005B2B46 /* PhoneDetailsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		749D76CB276D2A3C005B2B46 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				749D76D3276D2BD2005B2B46 /* PhoneDetailsViewController.swift */,
+				749D76D4276D2BD2005B2B46 /* PhoneDetailsViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		749D76CC276D2A48005B2B46 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				749D76CF276D2B6D005B2B46 /* PhoneImagesCells.swift */,
+				749D76D0276D2B6D005B2B46 /* PhoneImagesCells.xib */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
 		74F7B0C427663D0A004A15D0 = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +349,7 @@
 				74F7B0E927663DA9004A15D0 /* Auth */,
 				7405F08E2768CD8100CD0CFF /* Home */,
 				744A3ED9276961A00028E2C0 /* BrandsDetails */,
+				749D76C6276D2A09005B2B46 /* PhoneBrands */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -335,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				7405F09D2768D2C000CD0CFF /* UITableView + Publisher.swift */,
+				749D76D9276D2DC2005B2B46 /* UICollectionView + Publisher.swift */,
 				7405F0AA2768D79000CD0CFF /* UIView + Shadow.swift */,
 				7405F0AC2768D7F700CD0CFF /* Kingfisher + UrlImage.swift */,
 			);
@@ -450,8 +520,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				749D76D6276D2BD2005B2B46 /* PhoneDetailsViewController.xib in Resources */,
 				74F7B0DD27663D0D004A15D0 /* LaunchScreen.storyboard in Resources */,
 				74F7B11527678770004A15D0 /* RegisterViewController.xib in Resources */,
+				749D76D2276D2B6D005B2B46 /* PhoneImagesCells.xib in Resources */,
 				74F7B10B276783D4004A15D0 /* GoogleService-Info.plist in Resources */,
 				74F7B0DA27663D0D004A15D0 /* Assets.xcassets in Resources */,
 				74F7B0F327664084004A15D0 /* LoginViewController.xib in Resources */,
@@ -515,19 +587,24 @@
 				7405F09C2768CE6F00CD0CFF /* APiManager.swift in Sources */,
 				74B8F55A2769F4C70036BA0E /* BrandsDetailsViewController.swift in Sources */,
 				7405F09E2768D2C000CD0CFF /* UITableView + Publisher.swift in Sources */,
+				749D76D1276D2B6D005B2B46 /* PhoneImagesCells.swift in Sources */,
 				74F7B0F227664084004A15D0 /* LoginViewController.swift in Sources */,
 				7405F0AB2768D79000CD0CFF /* UIView + Shadow.swift in Sources */,
 				74F7B11427678770004A15D0 /* RegisterViewController.swift in Sources */,
+				749D76DA276D2DC2005B2B46 /* UICollectionView + Publisher.swift in Sources */,
 				74F7B0D127663D0A004A15D0 /* AppDelegate.swift in Sources */,
 				74F7B1112767873D004A15D0 /* RegisterViewModel.swift in Sources */,
 				74F7B1062766B3EE004A15D0 /* FirebaseAuth.swift in Sources */,
 				74F7B1092766C00C004A15D0 /* Hud.swift in Sources */,
 				745B92F22768DE2700B2BCDF /* Constants.swift in Sources */,
 				74F7B1042766B3C0004A15D0 /* NetworkManager.swift in Sources */,
+				749D76D5276D2BD2005B2B46 /* PhoneDetailsViewController.swift in Sources */,
 				7405F0972768CDC500CD0CFF /* HomeViewModel.swift in Sources */,
+				749D76D8276D2C18005B2B46 /* PhoneDetailsViewModel.swift in Sources */,
 				74F7B0F7276640CF004A15D0 /* LoginViewModel.swift in Sources */,
 				744A3EE0276961EC0028E2C0 /* BrandsDetails.swift in Sources */,
 				74E7FC1E276D118E00316095 /* DetailsTableViewCell.swift in Sources */,
+				749D76CE276D2B57005B2B46 /* PhoneDetailsModel.swift in Sources */,
 				7405F0A82768D75400CD0CFF /* BrandsTableViewCell.swift in Sources */,
 				74F7B0D327663D0A004A15D0 /* SceneDelegate.swift in Sources */,
 				7405F0942768CDB600CD0CFF /* HomeViewController.swift in Sources */,
