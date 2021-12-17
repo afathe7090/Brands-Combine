@@ -13,7 +13,11 @@ import Foundation
 protocol BrandsDetailsViewModelProtocol {
     var brandsDetails: [Phone] {get}
     var brand: BrandsData? {get}
+    var isLoading: Bool {get}
+    
     var brandsDetailsPublished: Published<[Phone]>.Publisher {get}
+    var isLoadingPublisher: Published<Bool>.Publisher {get}
+    
     func fetchBrandsDetailsData()
 }
 
@@ -28,6 +32,10 @@ class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
     
     @Published var brandsDetails: [Phone] = []
     var brandsDetailsPublished: Published<[Phone]>.Publisher {$brandsDetails}
+    
+    @Published var isLoading: Bool = false
+    var isLoadingPublisher: Published<Bool>.Publisher {$isLoading}
+    
     var brand: BrandsData?
     
     var subscribation = Set<AnyCancellable>()
@@ -50,18 +58,17 @@ class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
         
         let url = brand?.detail ?? ""
         
-        print(url)
+        isLoading = true
         apiManager.fetch(BrandsDetails.self, withURL: url, receiveCompletion: { completion in
             
             switch completion {
             case .failure(let error):
                 print(error.localizedDescription)
             case .finished :
-                print("Done")
-            }
+                self.isLoading = false
+                print("Done")            }
             
         }, receiveValue: { brands in
-            print(brands)
             self.brandsDetails = brands.data.phones
         }, subscripation: &subscribation)
     }
