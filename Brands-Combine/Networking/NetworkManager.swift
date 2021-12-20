@@ -40,8 +40,6 @@ class NetworkManager {
                 }
                 .store(in: &self.anyCancelable)
         }
-        
-        
     }
 }
 

@@ -80,9 +80,10 @@ class HomeViewController: UIViewController {
     
     func tableViewDidSelectRowAt(){
         tableView.didSelectRowPublisher.sink { indexPath in
-            print(self.viewModel.brandsData[indexPath.row])
-            let brandsViewModel = BrandsDetailsViewModel(brand: self.viewModel.brandsData[indexPath.row])
-            let brandsDetailVC = BrandsDetailsViewController(viewModel: brandsViewModel)
+            let brandsViewModel = BrandsDetailsViewModel()
+            let brandsDetailVC = BrandsDetailsViewController()
+            self.viewModel.delegate = brandsViewModel
+            self.viewModel.sendBrand(indexPath.row)
             self.navigationController?.pushViewController(brandsDetailVC, animated: true)
         }.store(in: &subscripation)
     }

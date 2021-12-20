@@ -12,14 +12,21 @@ import Foundation
 
 protocol BrandsDetailsViewModelProtocol {
     var brandsDetails: [Phone] {get}
-    var brand: BrandsData? {get}
     var isLoading: Bool {get}
-    
     var brandsDetailsPublished: Published<[Phone]>.Publisher {get}
     var isLoadingPublisher: Published<Bool>.Publisher {get}
+    var delegate: PhoneDataProtocol? {get set}
     
     func fetchBrandsDetailsData()
+    func sendPhone(_ index: Int)
 }
+
+
+
+protocol DataBrandsCommingProtocol: AnyObject{
+    func getBrand(_ brand: BrandsData)
+}
+
 
 
 class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
@@ -28,7 +35,9 @@ class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
     //=======>MARK: -  Proberties
     //----------------------------------------------------------------------------------------------------------------
     
-    var apiManager: ApiManagerProtocol!
+    var apiManager: ApiManagerProtocol {
+        return APiManager()
+    }
     
     @Published var brandsDetails: [Phone] = []
     var brandsDetailsPublished: Published<[Phone]>.Publisher {$brandsDetails}
@@ -36,19 +45,17 @@ class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
     @Published var isLoading: Bool = false
     var isLoadingPublisher: Published<Bool>.Publisher {$isLoading}
     
-    var brand: BrandsData?
-    
+    @Published var brand: BrandsData?
     var subscribation = Set<AnyCancellable>()
+    
+    weak var delegate: PhoneDataProtocol?
     
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Init
     //----------------------------------------------------------------------------------------------------------------
    
     
-    init(apiManager: ApiManagerProtocol = APiManager(), brand: BrandsData? = nil){
-        self.apiManager = apiManager
-        self.brand = brand
-    }
+    init(){}
     
     
     //----------------------------------------------------------------------------------------------------------------
@@ -74,4 +81,15 @@ class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
     }
     
     
+    func sendPhone(_ index: Int){
+        delegate?.getPhone(brandsDetails[index])
+    }
+    
+    
+}
+
+extension BrandsDetailsViewModel: DataBrandsCommingProtocol{
+    func getBrand(_ brand: BrandsData) {
+        self.brand = brand
+    }
 }

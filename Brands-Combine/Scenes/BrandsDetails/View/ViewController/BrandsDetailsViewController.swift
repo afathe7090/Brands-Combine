@@ -10,7 +10,7 @@ import Combine
 import CombineCocoa
 
 class BrandsDetailsViewController: UIViewController {
-
+    
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Proberties
     //----------------------------------------------------------------------------------------------------------------
@@ -22,16 +22,19 @@ class BrandsDetailsViewController: UIViewController {
     //=======>MARK: -  Outlet
     //----------------------------------------------------------------------------------------------------------------
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Init
     //----------------------------------------------------------------------------------------------------------------
-    init(viewModel: BrandsDetailsViewModelProtocol = BrandsDetailsViewModel()){
+    
+    init(_ viewModel: BrandsDetailsViewModelProtocol = BrandsDetailsViewModel()){
         super.init(nibName: "BrandsDetailsViewController", bundle: nil)
         self.viewModel = viewModel
     }
     
     required init?(coder: NSCoder) {fatalError("init(coder:) has not been implemented")}
-    
     
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Lyfe cycle
@@ -39,10 +42,11 @@ class BrandsDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setTableVIew()
         tableVIewDataSourcePublisher()
         isLoadingPublisher()
+        didSelectRowAt()
     }
     
     
@@ -68,5 +72,16 @@ class BrandsDetailsViewController: UIViewController {
         }.store(in: &subscripation )
     }
     
-
+    func didSelectRowAt(){
+        tableView.didSelectRowPublisher.sink { indexPath in
+            let phoneViewModel = PhoneDetailsViewModel()
+            let phoneVC = PhoneDetailsViewController()
+            
+            self.viewModel.delegate = phoneViewModel
+            self.viewModel.sendPhone(indexPath.row)
+            
+            self.navigationController?.pushViewController(phoneVC, animated: true)
+        }.store(in: &subscripation)
+    }
+    
 }

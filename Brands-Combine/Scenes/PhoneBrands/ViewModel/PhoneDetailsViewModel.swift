@@ -11,16 +11,16 @@ import Combine
 protocol PhoneDetailsViewModelProtocol {
     var isLoading: Bool {get}
     var isLoadingPublisher: Published<Bool>.Publisher {get}
-    
-    var phone: BrandsPhoneDetails? {get}
     var phonePublisher: Published<BrandsPhoneDetails?>.Publisher {get}
-    
     var imagesPublisher: AnyPublisher<[String],Never> {get}
     
     func fetchPhoneData()
     
 }
 
+protocol PhoneDataProtocol: AnyObject {
+    func getPhone(_ phone: Phone)
+}
 
 
 class PhoneDetailsViewModel: PhoneDetailsViewModelProtocol{
@@ -34,7 +34,7 @@ class PhoneDetailsViewModel: PhoneDetailsViewModelProtocol{
     @Published var phone: BrandsPhoneDetails?
     var phonePublisher: Published<BrandsPhoneDetails?>.Publisher {$phone}
     
-    var phoneData: Phone?
+    @Published var phoneData: Phone?
     
     var imagesPublisher: AnyPublisher<[String],Never> {
         return phonePublisher.map { brand in
@@ -48,9 +48,7 @@ class PhoneDetailsViewModel: PhoneDetailsViewModelProtocol{
     //----------------------------------------------------------------------------------------------------------------
     
     
-    init(phone: Phone? = nil){
-        self.phoneData = phone
-    }
+    init(){  }
     
     
     
@@ -84,4 +82,10 @@ class PhoneDetailsViewModel: PhoneDetailsViewModelProtocol{
     }
     
     
+}
+
+extension PhoneDetailsViewModel: PhoneDataProtocol{
+    func getPhone(_ phone: Phone) {
+        self.phoneData = phone
+    }
 }
