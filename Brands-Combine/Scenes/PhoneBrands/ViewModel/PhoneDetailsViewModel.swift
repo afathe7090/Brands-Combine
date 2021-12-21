@@ -12,7 +12,6 @@ protocol PhoneDetailsViewModelProtocol {
     var isLoading: Bool {get}
     var isLoadingPublisher: Published<Bool>.Publisher {get}
     var phonePublisher: Published<BrandsPhoneDetails?>.Publisher {get}
-//    var images: [String] { get set }
     var imagePublisher: Published<[String]>.Publisher { get }
     
     func fetchPhoneData()
@@ -39,6 +38,15 @@ class PhoneDetailsViewModel: PhoneDetailsViewModelProtocol{
     
     
     
+    
+    //----------------------------------------------------------------------------------------------------------------
+    //=======>MARK: -  Manager
+    //----------------------------------------------------------------------------------------------------------------
+    var subscribation = Set<AnyCancellable>()
+    var apiManager: ApiManagerProtocol!
+    
+    
+    
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Variable
     //----------------------------------------------------------------------------------------------------------------
@@ -48,14 +56,6 @@ class PhoneDetailsViewModel: PhoneDetailsViewModelProtocol{
         self.apiManager = apiManager
         self.phoneData = phoneData
     }
-    
-    
-    
-    //----------------------------------------------------------------------------------------------------------------
-    //=======>MARK: -  Manager
-    //----------------------------------------------------------------------------------------------------------------
-    var subscribation = Set<AnyCancellable>()
-    var apiManager: ApiManagerProtocol!
     
     
     //----------------------------------------------------------------------------------------------------------------
@@ -80,5 +80,4 @@ class PhoneDetailsViewModel: PhoneDetailsViewModelProtocol{
     }
     
     
-
 }

@@ -47,10 +47,10 @@ class PhoneDetailsViewController: UIViewController {
     //----------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        showImageLink()
         setCollectionView()
         startBindingToCollectionViewDataSorce()
         phoneDetailsLabel()
+        bindToReloadData()
     }
     
     
@@ -74,11 +74,10 @@ class PhoneDetailsViewController: UIViewController {
         })).store(in: &subscripation)
     }
     
-    
-    func showImageLink(){
-        viewModel.imagePublisher.sink { valu in
-            print(valu)
-        }.store(in: &subscripation )
+    func bindToReloadData(){
+        viewModel.imagePublisher.sink { _ in
+            self.collectionView.reloadData()
+        }.store(in: &subscripation)
     }
     
     
