@@ -47,9 +47,10 @@ class PhoneDetailsViewController: UIViewController {
     //----------------------------------------------------------------------------------------------------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        showImageLink()
         setCollectionView()
         startBindingToCollectionViewDataSorce()
+        phoneDetailsLabel()
     }
     
     
@@ -63,15 +64,35 @@ class PhoneDetailsViewController: UIViewController {
     }
     
     func startBindingToCollectionViewDataSorce(){
-        
         viewModel.fetchPhoneData()
-        
-        viewModel.imagesPublisher
+        viewModel.imagePublisher
             .sink(receiveValue: collectionView.items({ (collectionView, indexPath, model) in
+                print(model)
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhoneImagesCells.cellID, for: indexPath) as! PhoneImagesCells
             cell.setUpCell(model)
             return cell
         })).store(in: &subscripation)
     }
+    
+    
+    func showImageLink(){
+        viewModel.imagePublisher.sink { valu in
+            print(valu)
+        }.store(in: &subscripation )
+    }
+    
+    
+    func phoneDetailsLabel(){
+        viewModel.phonePublisher.sink { brands in
+            guard let data = brands else{return}
+            self.titleBrandsLabel.text = data.brand
+            self.phoneNameLabel.text = data.phone_name
+            self.dimensionLabel.text = data.dimension
+            self.releaseDateLabel.text = data.release_date
+            self.osLabel.text = data.os
+            self.storageLabel.text = data.storage
+        }.store(in: &subscripation)
+    }
+    
     
 }

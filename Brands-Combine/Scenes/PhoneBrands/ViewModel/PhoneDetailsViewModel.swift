@@ -12,18 +12,17 @@ protocol PhoneDetailsViewModelProtocol {
     var isLoading: Bool {get}
     var isLoadingPublisher: Published<Bool>.Publisher {get}
     var phonePublisher: Published<BrandsPhoneDetails?>.Publisher {get}
-    var imagesPublisher: AnyPublisher<[String],Never> {get}
+//    var images: [String] { get set }
+    var imagePublisher: Published<[String]>.Publisher { get }
     
     func fetchPhoneData()
     
 }
 
-protocol PhoneDataProtocol: AnyObject {
-    func getPhone(_ phone: Phone)
-}
 
 
 class PhoneDetailsViewModel: PhoneDetailsViewModelProtocol{
+    
     
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Published
@@ -33,22 +32,22 @@ class PhoneDetailsViewModel: PhoneDetailsViewModelProtocol{
     
     @Published var phone: BrandsPhoneDetails?
     var phonePublisher: Published<BrandsPhoneDetails?>.Publisher {$phone}
-    
     @Published var phoneData: Phone?
     
-    var imagesPublisher: AnyPublisher<[String],Never> {
-        return phonePublisher.map { brand in
-            return brand?.phone_images ?? [""]
-        }.eraseToAnyPublisher()
-    }
-        
+    @Published var images = [String]()
+    var imagePublisher: Published<[String]>.Publisher {$images}
+    
+    
     
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Variable
     //----------------------------------------------------------------------------------------------------------------
     
     
-    init(){  }
+    init(_ apiManager: ApiManagerProtocol = APiManager(), phoneData: Phone? = nil){
+        self.apiManager = apiManager
+        self.phoneData = phoneData
+    }
     
     
     
@@ -56,9 +55,7 @@ class PhoneDetailsViewModel: PhoneDetailsViewModelProtocol{
     //=======>MARK: -  Manager
     //----------------------------------------------------------------------------------------------------------------
     var subscribation = Set<AnyCancellable>()
-    var apiManager: ApiManagerProtocol {
-        return APiManager()
-    }
+    var apiManager: ApiManagerProtocol!
     
     
     //----------------------------------------------------------------------------------------------------------------
@@ -77,15 +74,11 @@ class PhoneDetailsViewModel: PhoneDetailsViewModelProtocol{
             }
             
         }, receiveValue: { phone in
-            print(phone)
+            self.phone = phone.data
+            self.images = phone.data.phone_images
         }, subscripation: &subscribation)
     }
     
     
-}
 
-extension PhoneDetailsViewModel: PhoneDataProtocol{
-    func getPhone(_ phone: Phone) {
-        self.phoneData = phone
-    }
 }

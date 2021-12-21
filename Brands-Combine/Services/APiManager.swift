@@ -23,7 +23,7 @@ class APiManager: ApiManagerProtocol {
                            receiveValue: @escaping(T)-> Void ,
                            subscripation: inout Set<AnyCancellable>){
         
-        
+        guard !withURL.isEmpty else{return}
         NetworkManager.shared.getResults(model, urlStr: withURL)
             .receive(on: DispatchQueue.main)
             .map {$0}

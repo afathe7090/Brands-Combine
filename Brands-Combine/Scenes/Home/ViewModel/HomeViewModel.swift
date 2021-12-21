@@ -14,12 +14,10 @@ protocol HomeViewModelProtocol: AnyObject {
     var brandsData: [BrandsData] {get}
     var brandsDataPublisher: Published<[BrandsData]>.Publisher {get}
     
-    var delegate: DataBrandsCommingProtocol? {get set}
     
     var isLoading: Bool {get}
     var isLoadingBublisher: Published<Bool>.Publisher {get}
     
-    func sendBrand(_ index: Int)
     func fetchBrandsOfData()
 }
 
@@ -42,7 +40,6 @@ class HomeViewModel: HomeViewModelProtocol {
     //----------------------------------------------------------------------------------------------------------------
     var subscripation = Set<AnyCancellable>()
     var apiDelegate: ApiManagerProtocol?
-    weak var delegate: DataBrandsCommingProtocol?
     
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Init
@@ -56,12 +53,7 @@ class HomeViewModel: HomeViewModelProtocol {
     //=======>MARK: -  Helper Function
     //----------------------------------------------------------------------------------------------------------------
     
-    
-    func sendBrand(_ index: Int){
-        delegate?.getBrand(brandsData[index])
-    }
-    
-    
+   
     func fetchBrandsOfData(){
         isLoading = true
         

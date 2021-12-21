@@ -43,12 +43,16 @@ class BrandsDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setTitleView()
         setTableVIew()
         tableVIewDataSourcePublisher()
         isLoadingPublisher()
         didSelectRowAt()
     }
     
+    func setTitleView(){
+        title = viewModel.brand?.brand_name
+    }
     
     func setTableVIew(){
         tableView.rowHeight = 80
@@ -74,11 +78,8 @@ class BrandsDetailsViewController: UIViewController {
     
     func didSelectRowAt(){
         tableView.didSelectRowPublisher.sink { indexPath in
-            let phoneViewModel = PhoneDetailsViewModel()
-            let phoneVC = PhoneDetailsViewController()
-            
-            self.viewModel.delegate = phoneViewModel
-            self.viewModel.sendPhone(indexPath.row)
+            let phoneViewModel = PhoneDetailsViewModel(phoneData: self.viewModel.brandsDetails[indexPath.row])
+            let phoneVC = PhoneDetailsViewController(with: phoneViewModel)            
             
             self.navigationController?.pushViewController(phoneVC, animated: true)
         }.store(in: &subscripation)

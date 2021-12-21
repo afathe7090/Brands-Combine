@@ -23,6 +23,7 @@ class PhoneImagesCells: UICollectionViewCell {
 
     
     func setUpCell(_ model: String){
+        print(model)
         self.phoneImage.setImage(model)
     }
     

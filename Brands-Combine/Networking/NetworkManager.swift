@@ -17,7 +17,6 @@ class NetworkManager {
     func getResults<T: Codable>(_ model: T.Type , urlStr: String) -> Future<T, Error> {
         
         let url = URL(string: urlStr)!
-        
         let decoder = JSONDecoder()
         
         return Future {[weak self] promise in

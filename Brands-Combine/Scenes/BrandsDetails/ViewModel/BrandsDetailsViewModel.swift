@@ -15,18 +15,9 @@ protocol BrandsDetailsViewModelProtocol {
     var isLoading: Bool {get}
     var brandsDetailsPublished: Published<[Phone]>.Publisher {get}
     var isLoadingPublisher: Published<Bool>.Publisher {get}
-    var delegate: PhoneDataProtocol? {get set}
-    
+    var brand: BrandsData? {get set}
     func fetchBrandsDetailsData()
-    func sendPhone(_ index: Int)
 }
-
-
-
-protocol DataBrandsCommingProtocol: AnyObject{
-    func getBrand(_ brand: BrandsData)
-}
-
 
 
 class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
@@ -35,9 +26,7 @@ class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
     //=======>MARK: -  Proberties
     //----------------------------------------------------------------------------------------------------------------
     
-    var apiManager: ApiManagerProtocol {
-        return APiManager()
-    }
+    var apiManager: ApiManagerProtocol
     
     @Published var brandsDetails: [Phone] = []
     var brandsDetailsPublished: Published<[Phone]>.Publisher {$brandsDetails}
@@ -48,14 +37,16 @@ class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
     @Published var brand: BrandsData?
     var subscribation = Set<AnyCancellable>()
     
-    weak var delegate: PhoneDataProtocol?
     
     //----------------------------------------------------------------------------------------------------------------
     //=======>MARK: -  Init
     //----------------------------------------------------------------------------------------------------------------
    
     
-    init(){}
+    init(apiManager: ApiManagerProtocol = APiManager() , brand: BrandsData? = nil){
+        self.apiManager = apiManager
+        self.brand = brand
+    }
     
     
     //----------------------------------------------------------------------------------------------------------------
@@ -63,7 +54,7 @@ class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
     //----------------------------------------------------------------------------------------------------------------
     func fetchBrandsDetailsData(){
         
-        let url = brand?.detail ?? ""
+        guard let url = brand?.detail else{return}
         
         isLoading = true
         apiManager.fetch(BrandsDetails.self, withURL: url, receiveCompletion: { completion in
@@ -81,15 +72,4 @@ class BrandsDetailsViewModel:  BrandsDetailsViewModelProtocol{
     }
     
     
-    func sendPhone(_ index: Int){
-        delegate?.getPhone(brandsDetails[index])
-    }
-    
-    
-}
-
-extension BrandsDetailsViewModel: DataBrandsCommingProtocol{
-    func getBrand(_ brand: BrandsData) {
-        self.brand = brand
-    }
 }
