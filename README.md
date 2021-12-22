@@ -6,8 +6,8 @@ Brands is demo for Using Combine with UIKit
 # What did i use ? 
     
     Simple Design using NIB-File 
-    Combine 
-    Dependency injection
+    Combine With UIKit
+    MVVM with Dependency injection
     URLSession 
     Firebase/Auth 
     
